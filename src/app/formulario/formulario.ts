@@ -12,7 +12,7 @@ import { CarritoService } from '../servicios/carrito';
   styleUrl: './formulario.css',
 })
 export class Formulario {
-  private rutaLogo = '/imagenes/59b11d34-6d45-4ee1-a28f-f56f95c2bc98.png';
+  private rutaLogo = 'imagenes/59b11d34-6d45-4ee1-a28f-f56f95c2bc98.png';
 
   cliente = {
     nombre: '',
