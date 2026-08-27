@@ -20,7 +20,7 @@ export class Formulario {
     direccion: ''
   };
 
-  constructor(private carrito: CarritoService) {}
+  constructor(private carrito: CarritoService) { }
 
   async confirmarCompra() {
     const items = this.carrito.obtenerItems();
@@ -39,7 +39,8 @@ export class Formulario {
   }
 
   private cargarImagenBase64(ruta: string): Promise<string> {
-    return fetch(ruta)
+    const url = new URL(ruta, document.baseURI).toString();
+    return fetch(url)
       .then(res => res.blob())
       .then(blob => new Promise<string>((resolve, reject) => {
         const reader = new FileReader();
@@ -55,17 +56,18 @@ export class Formulario {
     try {
       const logoBase64 = await this.cargarImagenBase64(this.rutaLogo);
       doc.addImage(logoBase64, 'PNG', 14, 10, 40, 40);
-    } catch {
+    } catch (error) {
+      console.error('No se pudo cargar el logo:', error);
     }
 
     doc.setFontSize(18);
     doc.text('FACTURA DE PEDIDO', 60, 25);
 
     doc.setFontSize(11);
-  doc.text(`Cliente: ${this.cliente.nombre}`, 14, 58);
-  doc.text(`Celular: ${this.cliente.celular}`, 14, 64);
-  doc.text(`Dirección: ${this.cliente.direccion}`, 14, 70);
-  doc.text(`Fecha: ${new Date().toLocaleDateString()}`, 14, 76);
+    doc.text(`Cliente: ${this.cliente.nombre}`, 14, 58);
+    doc.text(`Celular: ${this.cliente.celular}`, 14, 64);
+    doc.text(`Dirección: ${this.cliente.direccion}`, 14, 70);
+    doc.text(`Fecha: ${new Date().toLocaleDateString()}`, 14, 76);
 
     const filas = items.map(item => [
       item.nombre,
