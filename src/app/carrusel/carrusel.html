@@ -1,0 +1,10 @@
+<div class="seccionCarrusel">
+    <div class="carruselContenedor">
+        <div class="carruselTrack">
+            <div class="tarjetaCarrusel" *ngFor="let item of items">
+                <img [src]="item.imagen" [alt]="item.nombre">
+                <p>{{ item.frase }}</p>
+            </div>
+        </div>
+    </div>
+</div>

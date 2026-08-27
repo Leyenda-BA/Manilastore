@@ -1,0 +1,161 @@
+.sectionRecomendado {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 32px 16px;
+    gap: 32px;
+}
+
+.tarjeta {
+    position: relative;
+    flex: 1 1 300px;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta:hover {
+    border-color: rgb(203, 180, 51);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(203, 180, 51, 0.15);
+}
+
+.insignia {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background-color: rgb(203, 180, 51);
+    color: #1a1a1a;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.tarjeta-imagen {
+    margin: -20px -20px 16px -20px;
+    overflow: hidden;
+    border-radius: 16px 16px 0 0;
+}
+
+.tarjeta-imagen img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.tarjeta:hover .tarjeta-imagen img {
+    transform: scale(1.05);
+}
+
+.tarjeta h2 {
+    color: rgb(203, 180, 51);
+    font-size: 1rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0 0 4px 0;
+}
+
+.tarjeta h3 {
+    color: #f0e6e6;
+    font-size: 1.2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0 0 16px 0;
+}
+
+.lista-ingredientes {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.lista-ingredientes li {
+    color: #cabebe;
+    font-size: 0.85rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding-left: 16px;
+    position: relative;
+}
+
+.lista-ingredientes li::before {
+    content: "•";
+    color: rgb(203, 180, 51);
+    position: absolute;
+    left: 0;
+}
+.tarjeta-precio {
+    color: #f0e6e6;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 4px 0 16px 0;
+}
+
+.boton-comprar {
+    width: 100%;
+    background-color: rgb(38, 38, 43);
+    color: rgb(203, 180, 51);
+    border: 1px solid rgb(203, 180, 51);
+    padding: 10px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: auto;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.boton-comprar:hover {
+    background-color: rgb(203, 180, 51);
+    color: #1a1a1a;
+}
+
+.modal-content {
+    background-color: #1a1a1a;
+    border: 1px solid rgb(203, 180, 51);
+    border-radius: 16px;
+    padding: 8px;
+}
+
+.modal-header,
+.modal-footer {
+    border-color: #333333;
+}
+
+.modal-title {
+    color: rgb(203, 180, 51);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+}
+
+.modal-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.titulo-ingredientes {
+    color: rgb(203, 180, 51);
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+
+.modal-footer .boton-comprar {
+    margin-top: 0;
+}

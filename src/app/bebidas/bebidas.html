@@ -1,0 +1,50 @@
+<app-separador></app-separador>
+<app-buscador-b
+    (buscarNombre)="buscarPorNombre($event)"
+    (buscarIngrediente)="buscarPorIngrediente($event)"
+    (filtrarTipo)="filtrarPorTipo($event)"
+    (filtrarCategoria)="filtrarPorCategoria($event)">
+</app-buscador-b>
+
+<div class="sectionRecomendado">
+    <div class="tarjeta" *ngFor="let i of datosFiltrados">
+        <div class="tarjeta-imagen">
+            <img [src]="i?.imagen" [alt]="i?.nombre">
+        </div>
+        <div class="tarjeta-contenido">
+            <h2 class="tarjeta-titulo" [title]="i?.nombre">{{ i?.nombre }}</h2>
+            <p class="tarjeta-precio">${{ i.precio | number }}</p>
+            <div class="tarjeta-acciones"> 
+                <button type="button" class="btn boton" (click)="verDetalles(i)" data-bs-toggle="modal" data-bs-target="#myModal">ver detalles</button>
+                <button type="button" class="btn boton" (click)="agregarAlCarrito(i)">
+                    Agregar al carrito
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" *ngIf="detallesBebida">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ detallesBebida.nombre || 'Detalles' }}</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="detallesBebida.ingredientes?.length; else sinIngredientes">
+                    <p class="titulo-ingredientes">Ingredientes:</p>
+                    <ul class="lista-ingredientes">
+                        <li *ngFor="let ing of detallesBebida.ingredientes">• {{ ing }}</li>
+                    </ul>
+                </div>
+                <ng-template #sinIngredientes>
+                    <p class="sin-datos">No hay ingredientes registrados para esta bebida.</p>
+                </ng-template>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn boton-volver boton-comprar" data-bs-dismiss="modal">Volver</button>
+            </div>
+        </div>
+    </div>
+</div> 

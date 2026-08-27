@@ -1,0 +1,45 @@
+<div class="sectionRecomendado">
+    <div class="tarjeta" *ngIf="platoRecomendado">
+        <span class="insignia">Plato del día</span>
+        <div class="tarjeta-imagen">
+            <img [src]="platoRecomendado.imagen" [alt]="platoRecomendado.nombre">
+        </div>
+        <h3>{{ platoRecomendado.nombre }}</h3>
+        <p class="tarjeta-precio">${{ platoRecomendado.precio | number }}</p>
+        <button type="button" class="boton-comprar" data-bs-toggle="modal" data-bs-target="#modalDetalles" (click)="verDetalles(platoRecomendado)">Ver detalles</button>
+        <button type="button" class="boton-comprar" (click)="agregarAlCarrito(platoRecomendado)">Agregar al carrito</button>
+    </div>
+    
+    <div class="tarjeta" *ngIf="coctelRecomendado">
+        <span class="insignia">Coctel del día</span>
+        <div class="tarjeta-imagen">
+            <img [src]="coctelRecomendado.imagen" [alt]="coctelRecomendado.nombre">
+        </div>
+        <h3>{{ coctelRecomendado.nombre }}</h3>
+        <p class="tarjeta-precio">${{ coctelRecomendado.precio | number }}</p>
+        <button type="button" class="boton-comprar" data-bs-toggle="modal" data-bs-target="#modalDetalles" (click)="verDetalles(coctelRecomendado)">Ver detalles</button>
+        <button type="button" class="boton-comprar" (click)="agregarAlCarrito(coctelRecomendado)">Agregar al carrito</button>
+    </div>
+</div>
+
+<div class="modal fade" id="modalDetalles" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" *ngIf="itemSeleccionado">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ itemSeleccionado.nombre }}</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="itemSeleccionado.ingredientes?.length">
+                    <p class="titulo-ingredientes">Ingredientes:</p>
+                    <ul class="lista-ingredientes">
+                        <li *ngFor="let ing of itemSeleccionado.ingredientes">{{ ing }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="boton-comprar" data-bs-dismiss="modal">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>

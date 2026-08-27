@@ -1,0 +1,44 @@
+<app-separador></app-separador>
+<app-buscador-c (buscarNombre)="buscarPorNombre($event)" (buscarIngrediente)="buscarPorIngrediente($event)"></app-buscador-c>
+
+<div class="categorias">
+    <button *ngFor="let c of categorias" type="button" class="boton-categoria"
+        [class.activa]="c === categoriaActiva" (click)="filtrarPorCategoria(c)">
+        {{ c }}
+        </button>
+</div>
+
+<div class="sectionRecomendado">
+    <div class="tarjeta" *ngFor="let i of datosFiltrados">
+        <div class="tarjeta-imagen">
+            <img [src]="i?.imagen" [alt]="i?.nombre">
+        </div>
+        <div class="tarjeta-contenido">
+            <h2 class="tarjeta-titulo" [title]="i?.nombre">{{ i?.nombre }}</h2>
+            <p class="tarjeta-precio">${{ i.precio | number }}</p>
+            <div class="tarjeta-acciones">
+                <button type="button" class="btn boton" (click)="verDetalles(i) " data-bs-toggle="modal" data-bs-target="#myModal">ver detalles</button>
+                <button type="button" class="btn boton" (click)="agregarAlCarrito(i)">Agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark border-warning text-white" *ngIf="detallesComida">
+            <div class="modal-header border-secondary">
+                <h4 class="modal-title text-warning">{{ detallesComida.nombre || 'Detalles' }}</h4>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p class="fw-bold mb-2 text-warning">Ingredientes:</p>
+                <ul class="list-unstyled ps-2">
+                    <li *ngFor="let ing of detallesComida.ingredientes" class="mb-1 text-light">• {{ ing }}</li>
+                </ul>
+            </div>
+            <div class="modal-footer border-secondary">
+            <button type="button" class="btn btn-outline-warning boton-comprar" data-bs-dismiss="modal">Volver</button>
+        </div>
+    </div>
+</div>
+

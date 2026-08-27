@@ -1,0 +1,11 @@
+.abajo {
+    background-color: rgb(26, 29, 33);
+    color: white;
+    margin: auto;
+    display: block;
+    text-align: center;
+    font-family: 'Arial Rounded MT Bold', system-ui, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}

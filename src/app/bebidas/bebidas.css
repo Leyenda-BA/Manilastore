@@ -1,0 +1,155 @@
+.sectionRecomendado {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 32px 16px;
+}
+
+.tarjeta {
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    border-radius: 12px;
+    padding: 16px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.tarjeta:hover {
+    border-color: rgb(203, 180, 51);
+    transform: translateY(-4px);
+}
+
+.tarjeta-imagen img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.tarjeta-contenido {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.tarjeta-titulo {
+    color: rgb(203, 180, 51);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 0 0 16px 0;
+    display: -webkit-box;
+    display: box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 2.6em;
+}
+
+.tarjeta-acciones {
+    width: 100%;
+}
+
+.boton {
+    width: 100%;
+    background-color: rgb(38, 38, 43);
+    color: rgb(203, 180, 51);
+    border: 1px solid rgb(203, 180, 51);
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.boton:hover {
+    background-color: rgb(203, 180, 51);
+    color: #1a1a1a;
+}
+.tarjeta-precio {
+    color: #cabebe;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 12px 0;
+}
+/* Estilos locales para el Modal */
+.modal-content {
+    background-color: #1a1a1a;
+    border: 1px solid rgb(203, 180, 51);
+    border-radius: 12px;
+    color: #ffffff;
+}
+
+.modal-header,
+.modal-footer {
+    border-color: #333333;
+}
+
+.modal-title {
+    color: rgb(203, 180, 51);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+}
+
+.modal-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.titulo-ingredientes {
+    color: rgb(203, 180, 51);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.lista-ingredientes {
+    list-style: none;
+    padding-left: 8px;
+    margin: 0;
+    color: #cabebe;
+}
+
+.lista-ingredientes li {
+    margin-bottom: 4px;
+}
+
+.sin-datos {
+    color: #888888;
+    margin: 0;
+}
+
+.boton-volver {
+    background-color: rgb(38, 38, 43);
+    color: rgb(203, 180, 51);
+    border: 1px solid rgb(203, 180, 51);
+    padding: 6px 16px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.boton-volver:hover {
+    background-color: rgb(203, 180, 51);
+    color: #1a1a1a;
+}
+.boton-comprar {
+    width: 100%;
+    background-color: rgb(38, 38, 43);
+    color: rgb(203, 180, 51);
+    border: 1px solid rgb(203, 180, 51);
+    padding: 10px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: auto;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.boton-comprar:hover {
+    background-color: rgb(203, 180, 51);
+    color: #1a1a1a;
+}

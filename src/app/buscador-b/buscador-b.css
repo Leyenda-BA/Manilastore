@@ -1,0 +1,91 @@
+:root {
+  --color-accent: rgb(203, 180, 51);
+  --color-bg: #1a1a1a;
+  --color-text: #f0e6e6;
+  --color-placeholder: #808080;
+}
+
+.buscador-contenedor {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  padding: 0 16px;
+}
+
+.buscador-caja {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 6px 8px 6px 18px;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(247, 210, 3, 0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efecto de foco iluminado */
+.buscador-caja:focus-within {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 15px rgba(214, 220, 30, 0.4), 0 4px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+.icono-buscar {
+  color: var(--color-placeholder);
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+  transition: color 0.3s ease;
+}
+
+.buscador-caja:focus-within .icono-buscar {
+  color: var(--color-accent);
+}
+
+.campo {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  width: 100%;
+  color: #968f8f;
+}
+
+.campo::placeholder {
+  color: var(--color-placeholder);
+}
+
+/* Botón estilo píldora integrado */
+.boton-buscar {
+  background-color: var(--color-accent);
+  color: #e1dddd;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  padding: 10px 22px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.boton-buscar:hover {
+  filter: brightness(1.15);
+  transform: scale(1.02);
+}
+
+.boton-buscar:active {
+  transform: scale(0.98);
+}
+.campo {
+  color-scheme: dark;
+}
+
+.campo option {
+  background-color: #1a1a1a;
+  color: #f0e6e6;
+}

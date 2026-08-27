@@ -1,0 +1,20 @@
+<div class="formulario-contenedor">
+    <form (ngSubmit)="confirmarCompra()" class="formulario-caja">
+        <h3 class="formulario-titulo">Datos del pedido</h3>
+        <div class="mb-3 colorTexto">
+            <label for="nombre" class="form-label">Nombre Completo</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre completo" name="nombre" [(ngModel)]="cliente.nombre">
+        </div>
+        <div class="mb-3 colorTexto">
+            <label for="celular" class="form-label">Celular</label>
+            <input type="text" class="form-control" id="celular" placeholder="Ingrese su celular" name="celular" [(ngModel)]="cliente.celular">
+        </div>
+        <div class="mb-3 colorTexto">
+            <label for="direccion" class="form-label">Dirección</label>
+            <input type="text" class="form-control" id="direccion" placeholder="Calle/Carrera * N *" name="direccion" [(ngModel)]="cliente.direccion">
+        </div>
+            <button type="submit" class="boton">
+            Confirmar compra
+            </button>
+    </form>
+</div>

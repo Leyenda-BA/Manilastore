@@ -1,0 +1,26 @@
+
+<div class="listaCarrito">
+  <h2 class="titulo-carrito">Tu pedido</h2>
+
+  <div class="carrito-vacio" *ngIf="items.length === 0">
+    <p>Aún no has agregado comidas ni bebidas al carrito.</p>
+  </div>
+
+  <div class="itemCarrito" *ngFor="let item of items">
+  <div class="item-imagen">
+    <img [src]="item.imagen" [alt]="item.nombre">
+  </div>
+  <div class="item-info">
+    <h3 class="item-nombre">{{ item.nombre }}</h3>
+
+    <div class="contador">
+      <button type="button" class="boton-contador" (click)="decrementar(item.nombre)">−</button>
+      <span class="cantidad-valor">{{ item.cantidad }}</span>
+      <button type="button" class="boton-contador" (click)="incrementar(item.nombre)">+</button>
+    </div>
+  </div>
+  <span class="item-precio">${{ item.precio * item.cantidad | number }}</span>
+  <button type="button" class="boton-quitar" (click)="quitar(item.nombre)">Quitar</button>
+</div>
+
+<app-formulario></app-formulario>
