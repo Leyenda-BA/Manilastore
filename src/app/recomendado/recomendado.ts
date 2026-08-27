@@ -45,7 +45,7 @@ export class Recomendado implements OnInit {
 
   agregarAlCarrito(item: Comida | Bebida) {
     this.carrito.agregar({ nombre: item.nombre, imagen: item.imagen, precio: item.precio });
-    this.router.navigate(['/carrito']);
+    this.router.navigate(['/Carrito']);
     alert(`${item.nombre} agregado al carrito`);
   }
 }

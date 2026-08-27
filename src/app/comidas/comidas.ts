@@ -66,7 +66,7 @@ export class Comidas implements OnInit {
 
   agregarAlCarrito(comida: Comida) {
     this.carrito.agregar({ nombre: comida.nombre, imagen: comida.imagen, precio: comida.precio });
-    this.router.navigate(['/carrito']);
+    this.router.navigate(['/Carrito']);
     alert(`${comida.nombre} agregado al carrito`);
   }
   verDetalles(comida: Comida){
