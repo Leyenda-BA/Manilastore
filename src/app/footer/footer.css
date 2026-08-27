@@ -1,11 +1,40 @@
 .abajo {
     background-color: rgb(26, 29, 33);
     color: white;
-    margin: auto;
-    display: block;
-    text-align: center;
     font-family: 'Arial Rounded MT Bold', system-ui, sans-serif;
     display: flex;
-    justify-content: space-between;
-    padding: 10px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 16px 24px;
+    padding: 24px 16px;
+    text-align: center;
+}
+
+.abajo > div {
+    flex: 1 1 160px;
+    min-width: 140px;
+}
+
+.abajo h3 {
+    font-size: 0.95rem;
+    margin: 0 0 8px 0;
+    color: rgb(203, 180, 51);
+}
+
+.abajo p {
+    font-size: 0.85rem;
+    margin: 0;
+    word-break: break-word;
+}
+
+@media (max-width: 500px) {
+    .abajo {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .abajo > div {
+        flex: 1 1 100%;
+    }
 }
