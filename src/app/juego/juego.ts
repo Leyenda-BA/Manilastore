@@ -49,6 +49,8 @@ reiniciar(){
   for (let i = 1; i <= 16; i++) {
     const img = document.getElementById("mimg" + i) as HTMLImageElement;
     if (img) img.src = "imagenes/juego.jpg";
+    img.style.width = "140px";
+    img.style.height = "140px";
   }
 }
 
@@ -62,10 +64,12 @@ reiniciar(){
   }else if (this.posicion2 == p) {
     img.src = this.coctelRecomendado!.imagen;
     img.style.width = "140px";
+    img.style.height = "140px";
     this.solucion2 = true;
   } else {
     img.src = "imagenes/error.png";
     img.style.width = "140px";
+    img.style.height = "140px";
   }
 
   if (this.solucion1 && this.solucion2) {
